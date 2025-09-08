@@ -13,6 +13,7 @@ import Teams from './pages/Teams';
 import TeamProfile from './pages/TeamProfile';
 import Matches from './pages/Matches';
 import MatchProfile from './pages/MatchProfile';
+import Analytics from './pages/Analytics';
 
 function App() {
   return (
@@ -77,26 +78,37 @@ function App() {
               }
             />
 
-            <Route 
-              path="/matches" 
+            <Route
+              path="/matches"
               element={
                 <ProtectedRoute>
                   <DashboardLayout>
                     <Matches />
                   </DashboardLayout>
                 </ProtectedRoute>
-              } 
+              }
             />
-            
-            <Route 
-              path="/match/:matchId" 
+
+            <Route
+              path="/match/:matchId"
               element={
                 <ProtectedRoute>
                   <DashboardLayout>
                     <MatchProfile />
                   </DashboardLayout>
                 </ProtectedRoute>
-              } 
+              }
+            />
+
+            <Route
+              path="/analytics"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <Analytics />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
             />
 
             <Route path="/" element={<Navigate to="/dashboard" replace />} />

@@ -143,6 +143,17 @@ export const getMatchDetails = async (matchId) => {
     }
 };
 
+// Add to existing functions
+export const getHeroStats = async () => {
+    try {
+        const response = await opendotaAPI.get('heroStats');
+        return response.data;
+    } catch (error) {
+        console.error('Error fetching hero stats:', error);
+        throw error;
+    }
+};
+
 // Update the getPlayerData function to handle the actual API response structure
 // export const getPlayerData = async (accountId) => {
 //   try {
