@@ -11,6 +11,7 @@ import PlayerProfile from './pages/PlayerProfile';
 import Players from './pages/Players';
 import Teams from './pages/Teams';
 import TeamProfile from './pages/TeamProfile';
+import Matches from './pages/Matches';
 
 function App() {
   return (
@@ -73,6 +74,17 @@ function App() {
                   </DashboardLayout>
                 </ProtectedRoute>
               }
+            />
+
+            <Route 
+              path="/matches" 
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <Matches />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } 
             />
 
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
