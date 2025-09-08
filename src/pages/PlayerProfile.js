@@ -45,7 +45,8 @@ const PlayerProfile = () => {
   // Extract player information safely
   const getPlayerName = () => {
     if (!player) return 'Unknown Player';
-    return player?.profile?.name || player?.profile?.personaname || 'Unknown Player';
+    // Check both direct properties and nested profile properties
+    return player.name || player.personaname || player?.profile?.name || player?.profile?.personaname || 'Unknown Player';
   };
 
   const getSteamId = () => {
@@ -55,7 +56,7 @@ const PlayerProfile = () => {
 
   const getAvatar = () => {
     if (!player) return '/images/person_icon.png';
-    return player.avatarfull || player?.profile?.avatar || '/images/person_icon.png';
+    return player.avatarfull || player.avatar || player?.profile?.avatarfull || player?.profile?.avatar || '/images/person_icon.png';
   };
 
   const getTeamName = () => {
@@ -65,7 +66,7 @@ const PlayerProfile = () => {
 
   const getCountryCode = () => {
     if (!player) return '';
-    return player.country_code || player?.profile?.steamidloccountrycode || '';
+    return player.country_code || player.loccountrycode || player?.profile?.loccountrycode || '';
   };
 
   const getProfileUrl = () => {
@@ -204,12 +205,6 @@ const PlayerProfile = () => {
         >
           Recent Matches ({matches.length})
         </button>
-        {/* <button 
-          className={`tab-button ${activeTab === 'heroes' ? 'active' : ''}`}
-          onClick={() => setActiveTab('heroes')}
-        >
-          Heroes
-        </button> */}
       </div>
 
       {/* Tab Content */}
@@ -252,7 +247,7 @@ const PlayerProfile = () => {
                 )}
                 <div className="info-item">
                   <span className="info-label">Account ID:</span>
-                  <span className="info-value">{player?.profile.account_id}</span>
+                  <span className="info-value">{player.account_id}</span>
                 </div>
                 <div className="info-item">
                   <span className="info-label">Pro Status:</span>
@@ -315,16 +310,6 @@ const PlayerProfile = () => {
             )}
           </div>
         )}
-
-        {/* {activeTab === 'heroes' && (
-          <div className="heroes-tab">
-            <h3>Hero Statistics</h3>
-            <div className="coming-soon">
-              <p>Hero statistics will be available soon!</p>
-              <span className="emoji">🛠️</span>
-            </div>
-          </div>
-        )} */}
       </div>
     </div>
   );

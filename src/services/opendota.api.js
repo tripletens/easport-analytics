@@ -72,6 +72,16 @@ export const getPlayerWinLoss = async (accountId) => {
   }
 };
 
+export const getProTeams = async () => {
+  try {
+    const response = await opendotaAPI.get('teams');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching pro teams:', error);
+    throw error;
+  }
+};
+
 // Update the getPlayerData function to handle the actual API response structure
 // export const getPlayerData = async (accountId) => {
 //   try {

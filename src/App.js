@@ -9,6 +9,7 @@ import './App.css';
 
 import PlayerProfile from './pages/PlayerProfile';
 import Players from './pages/Players';
+import Teams from './pages/Teams';
 
 function App() {
   return (
@@ -35,6 +36,17 @@ function App() {
                 <ProtectedRoute>
                   <DashboardLayout>
                     <Players />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } 
+            />
+
+            <Route 
+              path="/teams" 
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <Teams />
                   </DashboardLayout>
                 </ProtectedRoute>
               } 
