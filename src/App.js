@@ -12,6 +12,7 @@ import Players from './pages/Players';
 import Teams from './pages/Teams';
 import TeamProfile from './pages/TeamProfile';
 import Matches from './pages/Matches';
+import MatchProfile from './pages/MatchProfile';
 
 function App() {
   return (
@@ -82,6 +83,17 @@ function App() {
                 <ProtectedRoute>
                   <DashboardLayout>
                     <Matches />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } 
+            />
+            
+            <Route 
+              path="/match/:matchId" 
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <MatchProfile />
                   </DashboardLayout>
                 </ProtectedRoute>
               } 
