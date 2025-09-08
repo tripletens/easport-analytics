@@ -82,6 +82,47 @@ export const getProTeams = async () => {
   }
 };
 
+// Add to existing functions
+export const getTeamData = async (teamId) => {
+  try {
+    const response = await opendotaAPI.get(`teams/${teamId}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching team data:', error);
+    throw error;
+  }
+};
+
+export const getTeamPlayers = async (teamId) => {
+  try {
+    const response = await opendotaAPI.get(`teams/${teamId}/players`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching team players:', error);
+    throw error;
+  }
+};
+
+export const getTeamMatches = async (teamId, limit = 10) => {
+  try {
+    const response = await opendotaAPI.get(`teams/${teamId}/matches?limit=${limit}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching team matches:', error);
+    throw error;
+  }
+};
+
+export const getTeamHeroes = async (teamId) => {
+  try {
+    const response = await opendotaAPI.get(`teams/${teamId}/heroes`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching team heroes:', error);
+    throw error;
+  }
+};
+
 // Update the getPlayerData function to handle the actual API response structure
 // export const getPlayerData = async (accountId) => {
 //   try {

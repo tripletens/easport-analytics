@@ -10,6 +10,7 @@ import './App.css';
 import PlayerProfile from './pages/PlayerProfile';
 import Players from './pages/Players';
 import Teams from './pages/Teams';
+import TeamProfile from './pages/TeamProfile';
 
 function App() {
   return (
@@ -18,51 +19,62 @@ function App() {
         <div className="App">
           <Routes>
             <Route path="/login" element={<Login />} />
-            
-            <Route 
-              path="/dashboard" 
+
+            <Route
+              path="/dashboard"
               element={
                 <ProtectedRoute>
                   <DashboardLayout>
                     <Home />
                   </DashboardLayout>
                 </ProtectedRoute>
-              } 
+              }
             />
 
-            <Route 
-              path="/players" 
+            <Route
+              path="/players"
               element={
                 <ProtectedRoute>
                   <DashboardLayout>
                     <Players />
                   </DashboardLayout>
                 </ProtectedRoute>
-              } 
+              }
             />
 
-            <Route 
-              path="/teams" 
+            <Route
+              path="/teams"
               element={
                 <ProtectedRoute>
                   <DashboardLayout>
                     <Teams />
                   </DashboardLayout>
                 </ProtectedRoute>
-              } 
+              }
             />
 
-            <Route 
-              path="/player/:accountId" 
+            <Route
+              path="/team/:teamId"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <TeamProfile />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+
+            <Route
+              path="/player/:accountId"
               element={
                 <ProtectedRoute>
                   <DashboardLayout>
                     <PlayerProfile />
                   </DashboardLayout>
                 </ProtectedRoute>
-              } 
+              }
             />
-            
+
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </div>
