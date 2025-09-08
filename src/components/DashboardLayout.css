@@ -1,0 +1,45 @@
+.dashboard-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.main-content-with-sidebar {
+  flex: 1;
+  margin-left: 280px; /* Same as sidebar width */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.page-content {
+  flex: 1;
+  padding: 20px;
+  background-color: #f8f9fa;
+  min-height: calc(100vh - 80px); /* Adjust based on header height */
+}
+
+/* When sidebar is collapsed */
+.sidebar.collapsed ~ .main-content-with-sidebar {
+  margin-left: 60px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    width: 280px;
+  }
+  
+  .sidebar.collapsed {
+    transform: translateX(0);
+    width: 60px;
+  }
+  
+  .main-content-with-sidebar {
+    margin-left: 0 !important;
+  }
+  
+  .sidebar.show-mobile {
+    transform: translateX(0);
+  }
+}
