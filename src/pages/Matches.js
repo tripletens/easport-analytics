@@ -233,7 +233,7 @@ const Matches = () => {
 
           {filters.matchType === 'public' && (
             <>
-              <div className="filter-group">
+              {/* <div className="filter-group">
                 <label>Region</label>
                 <select
                   value={filters.region}
@@ -244,9 +244,9 @@ const Matches = () => {
                     <option key={region.value} value={region.value}>{region.label}</option>
                   ))}
                 </select>
-              </div>
+              </div> */}
 
-              <div className="filter-group">
+              {/* <div className="filter-group">
                 <label>Skill Level</label>
                 <select
                   value={filters.skill}
@@ -257,7 +257,7 @@ const Matches = () => {
                     <option key={skill.value} value={skill.value}>{skill.label}</option>
                   ))}
                 </select>
-              </div>
+              </div> */}
             </>
           )}
         </div>

@@ -107,7 +107,8 @@ const TeamProfile = () => {
 
   const getPlayerName = (player) => {
     const details = playerDetails[player.account_id];
-    return details?.profile?.name || details?.name || player.name || player.personaname || 'Unknown Player';
+    console.log({details});
+    return details?.profile?.name || details?.name || details?.profile.personaname || player.name || player.personaname || 'Unknown Player';
   };
 
   const getPlayerAvatar = (player) => {

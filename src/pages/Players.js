@@ -66,7 +66,7 @@ const Players = () => {
         if (filters.country) {
             const countryFilterLower = filters.country.toLowerCase();
             result = result.filter(player => {
-                const countryCode = player?.country_code || '';
+                const countryCode = player?.loccountrycode || '';
                 const playerCountryName = getCountryName(countryCode) || '';
                 return playerCountryName.toLowerCase() === countryFilterLower;
             });
@@ -93,8 +93,8 @@ const Players = () => {
                     break;
                 case 'country':
                     // Sort by full country name instead of code
-                    aValue = getCountryName(a?.country_code) || '';
-                    bValue = getCountryName(b?.country_code) || '';
+                    aValue = getCountryName(a?.loccountrycode) || '';
+                    bValue = getCountryName(b?.loccountrycode) || '';
                     break;
                 case 'role':
                     aValue = a?.fantasy_role || 0;
@@ -284,7 +284,7 @@ const Players = () => {
                         currentPlayers.map(player => {
                             const playerName = player?.name || player?.profile.personaname || 'Unknown Player';
                             const teamName = player?.team_name || '';
-                            const countryCode = player?.country_code || '';
+                            const countryCode = player?.loccountrycode || '';
                             const role = player?.fantasy_role || '';
                             const steamId = player?.profile?.steamid || '';
                             const avatar = player?.avatarfull || '/images/person_icon.png';
