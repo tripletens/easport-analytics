@@ -1,0 +1,32 @@
+/* Add to your main CSS file */
+.favorite-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #ccc;
+}
+
+.favorite-btn:hover {
+    color: #ffd700;
+    transform: scale(1.1);
+}
+
+.favorite-btn.favorited {
+    color: #ffd700;
+}
+
+.favorite-btn-small {
+    font-size: 16px;
+    padding: 4px;
+}
+
+.favorite-btn-medium {
+    font-size: 20px;
+    padding: 6px;
+}
+
+.favorite-btn-large {
+    font-size: 24px;
+    padding: 8px;
+}

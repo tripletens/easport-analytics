@@ -14,6 +14,7 @@ import TeamProfile from './pages/TeamProfile';
 import Matches from './pages/Matches';
 import MatchProfile from './pages/MatchProfile';
 import Analytics from './pages/Analytics';
+import Favorites from './pages/Favorites';
 
 function App() {
   return (
@@ -111,6 +112,17 @@ function App() {
               }
             />
 
+            <Route
+              path="/favorites"
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <Favorites />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              }
+            />
+            
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </div>
