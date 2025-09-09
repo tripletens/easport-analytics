@@ -149,28 +149,28 @@ const Favorites = () => {
         <div className="favorites-page">
             <div className="page-header">
                 <h1>My Favorites</h1>
-                <p>Manage your favorite Dota 2 players, teams, heroes, and matches</p>
+                <p>Manage your favorite Dota 2 teams</p>
             </div>
 
             {/* Navigation Tabs */}
             <div className="favorites-tabs">
-                <button className={`tab-button ${activeTab === 'players' ? 'active' : ''}`} onClick={() => setActiveTab('players')}>
+                {/* <button className={`tab-button ${activeTab === 'players' ? 'active' : ''}`} onClick={() => setActiveTab('players')}>
                     Players ({favoritePlayers.length})
-                </button>
+                </button> */}
                 <button className={`tab-button ${activeTab === 'teams' ? 'active' : ''}`} onClick={() => setActiveTab('teams')}>
                     Teams ({favoriteTeams.length})
                 </button>
-                <button className={`tab-button ${activeTab === 'heroes' ? 'active' : ''}`} onClick={() => setActiveTab('heroes')}>
+                {/* <button className={`tab-button ${activeTab === 'heroes' ? 'active' : ''}`} onClick={() => setActiveTab('heroes')}>
                     Heroes ({favoriteHeroes.length})
                 </button>
                 <button className={`tab-button ${activeTab === 'matches' ? 'active' : ''}`} onClick={() => setActiveTab('matches')}>
                     Matches ({favoriteMatches.length})
-                </button>
+                </button> */}
             </div>
 
             {/* Tab Content */}
             <div className="favorites-content">
-                {activeTab === 'players' && (
+                {/* {activeTab === 'players' && (
                     <div className="players-tab">
                         {favoritePlayers.length === 0 ? (
                             <div className="empty-state">
@@ -224,7 +224,7 @@ const Favorites = () => {
                             </div>
                         )}
                     </div>
-                )}
+                )} */}
 
                 {activeTab === 'teams' && (
                     <div className="teams-tab">
@@ -275,7 +275,7 @@ const Favorites = () => {
                     </div>
                 )}
 
-                {activeTab === 'heroes' && (
+                {/* {activeTab === 'heroes' && (
                     <div className="heroes-tab">
                         {favoriteHeroes.length === 0 ? (
                             <div className="empty-state">
@@ -327,9 +327,9 @@ const Favorites = () => {
                             </div>
                         )}
                     </div>
-                )}
+                )} */}
 
-                {activeTab === 'matches' && (
+                {/* {activeTab === 'matches' && (
                     <div className="matches-tab">
                         {favoriteMatches.length === 0 ? (
                             <div className="empty-state">
@@ -384,7 +384,7 @@ const Favorites = () => {
                             </div>
                         )}
                     </div>
-                )}
+                )} */}
             </div>
         </div>
     );
