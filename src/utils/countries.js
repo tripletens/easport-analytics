@@ -1,4 +1,3 @@
-// ISO 3166-1 alpha-2 country codes to full names mapping
 export const countryCodesToNames = {
   'AD': 'Andorra',
   'AE': 'United Arab Emirates',
@@ -251,24 +250,20 @@ export const countryCodesToNames = {
   'ZW': 'Zimbabwe'
 };
 
-// Helper function to get country name from code
 export const getCountryName = (code) => {
   return countryCodesToNames[code] || code;
 };
 
-// Helper function to get country code from name
 export const getCountryCode = (name) => {
   return Object.keys(countryCodesToNames).find(
     code => countryCodesToNames[code] === name
   ) || name;
 };
 
-// Get sorted list of country names for dropdowns
 export const getSortedCountryNames = () => {
   return Object.values(countryCodesToNames).sort();
 };
 
-// Get sorted list of country codes with names for dropdowns
 export const getCountryOptions = () => {
   return Object.entries(countryCodesToNames)
     .map(([code, name]) => ({ code, name }))

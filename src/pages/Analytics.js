@@ -58,7 +58,6 @@ const Analytics = () => {
             }));
     };
 
-    // Update the getRegionData function to include full labels
     const getRegionData = () => {
         const regionStats = {};
         players.forEach(player => {
@@ -71,14 +70,13 @@ const Analytics = () => {
         return Object.entries(regionStats)
             .map(([country, count]) => ({
                 label: country.length > 10 ? country.substring(0, 10) + '...' : country, // Short label for display
-                fullLabel: country, // Full label for tooltip
+                fullLabel: country,
                 value: count
             }))
             .sort((a, b) => b.value - a.value)
             .slice(0, 6);
     };
 
-    // Also update other data preparation functions to support full labels if needed
     const getTeamWinRateData = () => {
         const teamWinRates = {};
         matches.forEach(match => {
@@ -97,14 +95,13 @@ const Analytics = () => {
         return Object.entries(teamWinRates)
             .map(([team, stats]) => ({
                 label: team.length > 15 ? team.substring(0, 15) + '...' : team,
-                fullLabel: team, // Full team name for tooltip
+                fullLabel: team, 
                 value: ((stats.wins / (stats.wins + stats.losses)) * 100) || 0
             }))
             .sort((a, b) => b.value - a.value)
             .slice(0, 8);
     };
 
-    // In your Analytics component, update the margin functions:
     const getTeamChartMargins = () => {
         return { top: 60, right: 30, bottom: 120, left: 70 };
     };
@@ -121,7 +118,7 @@ const Analytics = () => {
                 label: hero.localized_name ?
                     (hero.localized_name.length > 10 ? hero.localized_name.substring(0, 10) + '...' : hero.localized_name) :
                     `Hero ${hero.id}`,
-                fullLabel: hero.localized_name || `Hero ${hero.id}`, // Full hero name for tooltip
+                fullLabel: hero.localized_name || `Hero ${hero.id}`, 
                 value: hero.pro_pick
             }))
             .sort((a, b) => b.value - a.value)
@@ -166,7 +163,6 @@ const Analytics = () => {
                 <p>Advanced D3.js visualizations for Dota 2 professional scene</p>
             </div>
 
-            {/* Time Range Filter */}
             <div className="filters-section card">
                 <div className="filters-row">
                     <div className="filter-group">
@@ -190,7 +186,6 @@ const Analytics = () => {
                 </div>
             </div>
 
-            {/* Navigation Tabs */}
             <div className="analytics-tabs">
                 <button className={`tab-button ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => setActiveTab('overview')}>
                     Overview
@@ -209,7 +204,6 @@ const Analytics = () => {
                 </button>
             </div>
 
-            {/* Tab Content */}
             <div className="tab-content">
                 {activeTab === 'overview' && (
                     <div className="overview-tab">
@@ -241,7 +235,6 @@ const Analytics = () => {
                             </div>
                         </div>
 
-                        {/* D3 Charts Section */}
                         <div className="charts-section">
                             <div className="chart-card">
                                 <h3>Top Teams by Win Rate</h3>
@@ -254,8 +247,8 @@ const Analytics = () => {
 
                                 <BarChart
                                     data={teamWinRateData}
-                                    width={650}  // Increased width
-                                    height={700} // Increased height
+                                    width={650}  
+                                    height={500}
                                     margin={getTeamChartMargins()}
                                     xAxisLabel="Teams"
                                     yAxisLabel="Win Rate (%)"
@@ -297,7 +290,6 @@ const Analytics = () => {
                     </div>
                 )}
 
-                {/* Other tabs remain similar but can be enhanced with D3 charts */}
                 {activeTab === 'players' && (
                     <div className="players-tab">
                         <h2>Player Analytics</h2>
@@ -330,7 +322,6 @@ const Analytics = () => {
                     </div>
                 )}
 
-                {/* Add similar D3 visualizations for other tabs */}
                 {activeTab === 'teams' && (
                     <div className="teams-tab">
                         <h2>Team Performance Analysis</h2>

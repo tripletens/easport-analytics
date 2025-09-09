@@ -152,7 +152,6 @@ const Favorites = () => {
                 <p>Manage your favorite Dota 2 teams</p>
             </div>
 
-            {/* Navigation Tabs */}
             <div className="favorites-tabs">
                 {/* <button className={`tab-button ${activeTab === 'players' ? 'active' : ''}`} onClick={() => setActiveTab('players')}>
                     Players ({favoritePlayers.length})

@@ -1,11 +1,8 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
-import personIcon from '../images/person_icon.png'; // Import the local image
+import personIcon from '../images/person_icon.png'; 
 
-// Create the Auth Context
 const AuthContext = createContext();
 
-
-// Custom hook to use the auth context
 export const useAuth = () => {
     const context = useContext(AuthContext);
     if (!context) {
@@ -14,27 +11,23 @@ export const useAuth = () => {
     return context;
 };
 
-// Auth Provider Component
 export const AuthProvider = ({ children }) => {
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    // Check localStorage for existing token on app load
     useEffect(() => {
         const token = localStorage.getItem('esports_token');
         const userData = localStorage.getItem('esports_user');
 
         if (token && userData) {
             const userObj = JSON.parse(userData);
-            // Ensure the avatar uses our local image
             userObj.avatar = personIcon;
             setUser(userObj);
         }
         setLoading(false);
     }, []);
 
-    // Simulated login function
     const login = async (email, password) => {
         try {
             if (email && password) {
@@ -43,7 +36,7 @@ export const AuthProvider = ({ children }) => {
                     email: email,
                     name: 'eSports Analyst',
                     role: 'analyst',
-                    avatar: personIcon, // Use the local image here
+                    avatar: personIcon,
                 };
 
                 const mockToken = 'mock_jwt_token_12345';

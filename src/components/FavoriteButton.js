@@ -1,4 +1,3 @@
-// components/FavoriteButton.js
 import React, { useState, useEffect } from 'react';
 import { isInFavorites, addToFavorites, removeFromFavorites } from '../utils/favorites';
 

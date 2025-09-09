@@ -1,27 +1,21 @@
-// src/services/opendota.api.js
 import axios from 'axios';
 
-// Create a base Axios instance for OpenDota API
 const opendotaAPI = axios.create({
     baseURL: 'https://api.opendota.com/api/',
 });
 
-// Function to search for players by persona name (their display name)
 export const searchPlayers = async (playerName) => {
     try {
         const response = await opendotaAPI.get(`search?q=${playerName}`);
         return response.data;
     } catch (error) {
         console.error('Error searching players:', error);
-        throw error; // Re-throw the error to handle it in the component
+        throw error; 
     }
 };
 
-// Function to get detailed player data by their account ID
 export const getPlayerData = async (accountId) => {
     try {
-        // You can request more specific data using the 'select' parameter for PostgreSQL
-        // This is a powerful feature of OpenDota. Here we get wins, losses, and MMR.
         const response = await opendotaAPI.get(`players/${accountId}?select=profile,mmr_estimate,competitive_rank,rank_tier,solo_competitive_rank,leaderboard_rank,win,lose`);
         return response.data;
     } catch (error) {
@@ -30,7 +24,6 @@ export const getPlayerData = async (accountId) => {
     }
 };
 
-// Function to get a player's recent matches
 export const getPlayerMatches = async (accountId, limit = 10) => {
     try {
         const response = await opendotaAPI.get(`players/${accountId}/matches?limit=${limit}`);
@@ -61,7 +54,6 @@ export const getProPlayers = async () => {
     }
 };
 
-// Add to existing functions
 export const getPlayerWinLoss = async (accountId) => {
     try {
         const response = await opendotaAPI.get(`players/${accountId}/wl`);
@@ -82,7 +74,6 @@ export const getProTeams = async () => {
     }
 };
 
-// Add to existing functions
 export const getTeamData = async (teamId) => {
     try {
         const response = await opendotaAPI.get(`teams/${teamId}`);
@@ -143,7 +134,6 @@ export const getMatchDetails = async (matchId) => {
     }
 };
 
-// Add to existing functions
 export const getHeroStats = async () => {
     try {
         const response = await opendotaAPI.get('heroStats');
@@ -154,7 +144,6 @@ export const getHeroStats = async () => {
     }
 };
 
-// Update the getPlayerData function to handle the actual API response structure
 // export const getPlayerData = async (accountId) => {
 //   try {
 //     // The OpenDota API returns player data directly, not nested under 'profile'
@@ -166,6 +155,3 @@ export const getHeroStats = async () => {
 //   }
 // };
 
-
-
-// Add more API functions here as needed (e.g., for heroes, teams, pro matches)

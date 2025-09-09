@@ -1,4 +1,3 @@
-// pages/Teams.js
 import React, { useState, useEffect } from 'react';
 import { getProMatches } from '../services/opendota.api';
 import TeamCard from '../components/TeamCard';
@@ -15,7 +14,6 @@ const Teams = () => {
                 const matchesData = await getProMatches(100);
                 setMatches(matchesData);
                 
-                // Extract unique teams from matches
                 const uniqueTeams = {};
                 matchesData.forEach(match => {
                     if (match.radiant_name) {

@@ -18,7 +18,7 @@ const Home = () => {
     const fetchRecentMatches = async () => {
       try {
         setMatchesLoading(true);
-        const matches = await getProMatches(5); // Get 5 recent pro matches
+        const matches = await getProMatches(5); 
         setRecentMatches(matches);
       } catch (err) {
         console.error('Failed to fetch recent matches:', err);
@@ -38,7 +38,7 @@ const Home = () => {
     setError(null);
     try {
       const results = await searchPlayers(searchQuery);
-      setSearchResults(results.slice(0, 6)); // Show only 6 results
+      setSearchResults(results.slice(0, 6));
     } catch (err) {
       setError('Failed to search players. Please try again.');
       console.error(err);
@@ -91,7 +91,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Main Search Section */}
         <div className="search-section card">
           <h2>Player Search</h2>
           <SearchBar
@@ -132,7 +131,6 @@ const Home = () => {
           )}
         </div>
 
-        {/* Recent Pro Matches */}
         <div className="recent-matches card">
           <h2>Recent Pro Matches</h2>
           {matchesLoading ? (
@@ -166,7 +164,6 @@ const Home = () => {
           </Link>
         </div>
 
-        {/* Quick Actions */}
         <div className="quick-actions card">
           <h2>Quick Actions</h2>
           <div className="action-buttons">

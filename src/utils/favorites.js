@@ -1,4 +1,3 @@
-// utils/favorites.js
 export const addToFavorites = (type, item) => {
     const favorites = JSON.parse(localStorage.getItem('dotaFavorites')) || {
         players: [],
@@ -6,8 +5,7 @@ export const addToFavorites = (type, item) => {
         heroes: [],
         matches: []
     };
-    
-    // Check if already in favorites
+
     const exists = favorites[type].some(fav => fav.id === item.id);
     if (!exists) {
         favorites[type].push({

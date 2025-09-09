@@ -22,7 +22,6 @@ const MatchProfile = () => {
         console.log('Match Data:', matchData);
         setMatch(matchData);
         
-        // Fetch player details for all players in the match
         await fetchPlayerDetails(matchData.players || []);
       } catch (err) {
         setError('Failed to fetch match data. Please try again.');
@@ -70,7 +69,6 @@ const MatchProfile = () => {
     }
   }, [matchId]);
 
-  // Helper functions
   const formatDuration = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -152,7 +150,6 @@ const MatchProfile = () => {
     <div className="match-profile">
       <Link to="/matches" className="back-button">← Back to Matches</Link>
       
-      {/* Match Header */}
       <div className="match-header card">
         <div className="match-basic-info">
           <h1>Match #{match.match_id}</h1>
@@ -196,7 +193,6 @@ const MatchProfile = () => {
         </div>
       </div>
 
-      {/* Stats Overview */}
       <div className="stats-overview">
         <div className="stat-card">
           <div className="stat-icon">⏱️</div>
@@ -241,7 +237,6 @@ const MatchProfile = () => {
         </div>
       </div>
 
-      {/* Navigation Tabs */}
       <div className="match-tabs">
         <button 
           className={`tab-button ${activeTab === 'overview' ? 'active' : ''}`}
@@ -269,7 +264,6 @@ const MatchProfile = () => {
         </button>
       </div>
 
-      {/* Tab Content */}
       <div className="tab-content">
         {activeTab === 'overview' && (
           <div className="overview-tab">

@@ -1,4 +1,3 @@
-// components/TeamCard.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import FavoriteButton from './FavoriteButton';

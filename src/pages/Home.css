@@ -274,7 +274,6 @@
   border-left: 4px solid #e74c3c;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .dashboard-header h1 {
     font-size: 2em;

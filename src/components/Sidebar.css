@@ -146,7 +146,6 @@
   text-overflow: ellipsis;
 }
 
-/* Scrollbar styling */
 .sidebar-nav::-webkit-scrollbar {
   width: 4px;
 }

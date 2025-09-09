@@ -37,7 +37,6 @@ const TeamProfile = () => {
         setMatches(matchesData);
         setHeroes(heroesData);
         
-        // Fetch detailed player information
         await fetchPlayerDetails(playersData);
       } catch (err) {
         setError('Failed to fetch team data. Please try again.');
@@ -85,7 +84,6 @@ const TeamProfile = () => {
     }
   }, [teamId]);
 
-  // Calculate team statistics
   const calculateWinRate = (wins, losses) => {
     const total = wins + losses;
     return total > 0 ? ((wins / total) * 100).toFixed(1) : 0;
@@ -107,7 +105,6 @@ const TeamProfile = () => {
     return new Date(timestamp * 1000).toLocaleDateString();
   };
 
-  // Get player information from details
   const getPlayerName = (player) => {
     const details = playerDetails[player.account_id];
     return details?.profile?.name || details?.name || player.name || player.personaname || 'Unknown Player';
@@ -146,7 +143,6 @@ const TeamProfile = () => {
     <div className="team-profile">
       <Link to="/teams" className="back-button">← Back to Teams</Link>
       
-      {/* Team Header */}
       <div className="team-header card">
         <div className="team-logo-large">
           {team.logo_url ? (
@@ -193,7 +189,6 @@ const TeamProfile = () => {
         </div>
       </div>
 
-      {/* Stats Overview */}
       <div className="stats-overview">
         <div className="stat-card">
           <div className="stat-icon">🏆</div>
@@ -234,7 +229,6 @@ const TeamProfile = () => {
         </div>
       </div>
 
-      {/* Navigation Tabs */}
       <div className="team-tabs">
         <button 
           className={`tab-button ${activeTab === 'overview' ? 'active' : ''}`}
@@ -262,7 +256,6 @@ const TeamProfile = () => {
         </button>
       </div>
 
-      {/* Tab Content */}
       <div className="tab-content">
         {activeTab === 'overview' && (
           <div className="overview-tab">

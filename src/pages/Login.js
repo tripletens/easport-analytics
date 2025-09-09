@@ -20,8 +20,7 @@ const Login = () => {
     const result = await login(email, password);
     
     if (result.success) {
-      navigate('/dashboard'); // Redirect to dashboard on success
-    } else {
+      navigate('/dashboard'); 
       setError(result.error || 'Login failed. Please try again.');
     }
     

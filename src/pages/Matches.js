@@ -10,7 +10,7 @@ const Matches = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [filters, setFilters] = useState({
-    matchType: 'pro', // 'pro' or 'public'
+    matchType: 'pro',
     league: '',
     region: '',
     skill: '',
@@ -38,7 +38,7 @@ const Matches = () => {
       let matchesData;
       
       if (filters.matchType === 'pro') {
-        matchesData = await getProMatches(100); // Get more matches for filtering
+        matchesData = await getProMatches(100); 
       } else {
         matchesData = await getPublicMatches(100);
       }
@@ -66,7 +66,7 @@ const Matches = () => {
       setSelectedMatch(matchId);
     } catch (err) {
       console.error('Error fetching match details:', err);
-      setSelectedMatch(matchId); // Still show basic info even if details fail
+      setSelectedMatch(matchId); 
     } finally {
       setDetailsLoading(false);
     }
@@ -75,7 +75,6 @@ const Matches = () => {
   const filterAndSortMatches = () => {
     let result = [...matches];
 
-    // Apply league filter
     if (filters.league) {
       result = result.filter(match => 
         match.league_name?.toLowerCase().includes(filters.league.toLowerCase()) ||
@@ -83,17 +82,14 @@ const Matches = () => {
       );
     }
 
-    // Apply region filter (for public matches)
     if (filters.region && filters.matchType === 'public') {
       result = result.filter(match => match.region?.toString() === filters.region);
     }
 
-    // Apply skill filter (for public matches)
     if (filters.skill && filters.matchType === 'public') {
       result = result.filter(match => match.skill?.toString() === filters.skill);
     }
 
-    // Apply sorting
     result.sort((a, b) => {
       let aValue, bValue;
 
@@ -120,9 +116,9 @@ const Matches = () => {
       }
 
       if (filters.sortOrder === 'desc') {
-        return bValue - aValue; // For numbers
+        return bValue - aValue; 
       } else {
-        return aValue - bValue; // For numbers
+        return aValue - bValue; 
       }
     });
 
@@ -145,7 +141,6 @@ const Matches = () => {
     }));
   };
 
-  // Get unique values for filters
   const uniqueLeagues = [...new Set(
     matches
       .map(match => match.league_name)
@@ -177,7 +172,6 @@ const Matches = () => {
     { value: '3', label: 'Very High' },
   ];
 
-  // Calculate match duration
   const formatDuration = (seconds) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
@@ -192,7 +186,6 @@ const Matches = () => {
     return new Date(timestamp * 1000).toLocaleTimeString();
   };
 
-  // Pagination logic
   const indexOfLastMatch = currentPage * matchesPerPage;
   const indexOfFirstMatch = indexOfLastMatch - matchesPerPage;
   const currentMatches = filteredMatches.slice(indexOfFirstMatch, indexOfLastMatch);
@@ -210,7 +203,6 @@ const Matches = () => {
         <p>Browse and analyze recent professional and public matches</p>
       </div>
 
-      {/* Filters and Search */}
       <div className="filters-section card">
         <div className="filters-grid">
           <div className="filter-group">
@@ -271,7 +263,6 @@ const Matches = () => {
         </div>
       </div>
 
-      {/* Results Summary */}
       <div className="results-summary">
         <span>
           Showing {currentMatches.length} of {filteredMatches.length} matches
@@ -403,7 +394,6 @@ const Matches = () => {
         )}
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="pagination">
           <button

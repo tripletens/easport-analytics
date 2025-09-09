@@ -1,8 +1,6 @@
-// src/components/PlayerCard.js
 import React from 'react';
 
 const PlayerCard = ({ player }) => {
-  // Check if player data exists
   if (!player || !player.profile) {
     return <div>Loading player data...</div>;
   }
@@ -18,7 +16,6 @@ const PlayerCard = ({ player }) => {
       <p><strong>Win Rate:</strong> {winRate}%</p>
       <p><strong>Estimated MMR:</strong> {mmr_estimate?.estimate || 'N/A'}</p>
       <p><strong>Rank Tier:</strong> {rank_tier ? `${Math.floor(rank_tier / 10)} Div ${rank_tier % 10}` : 'N/A'}</p>
-      {/* You can add more stats here later */}
     </div>
   );
 };

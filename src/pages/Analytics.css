@@ -489,7 +489,6 @@
   }
 }
 
-/* Add these styles for D3 charts */
 .chart-card {
   background: white;
   padding: 25px;
@@ -518,7 +517,6 @@
   fill: #333;
 }
 
-/* Responsive adjustments for charts */
 @media (max-width: 768px) {
   .charts-section {
     grid-template-columns: 1fr;
@@ -544,7 +542,6 @@
   margin: 0;
 }
 
-/* Ensure charts are properly centered */
 .bar-chart-container {
   display: flex;
   justify-content: center;
@@ -552,7 +549,6 @@
   margin: 20px 0;
 }
 
-/* Grid line styles */
 .grid line {
   stroke: #e1e8ed;
   stroke-width: 1;
@@ -586,7 +582,6 @@
   gap: 30px;
 }
 
-/* Add to your CSS */
 .bar-chart-container {
   width: 100%;
   overflow: visible;

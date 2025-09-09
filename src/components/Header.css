@@ -59,7 +59,6 @@
   background: #c0392b;
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
   .mobile-menu-btn {
     display: block;

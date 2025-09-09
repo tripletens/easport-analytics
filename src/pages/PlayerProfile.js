@@ -23,8 +23,8 @@ const PlayerProfile = () => {
           getPlayerWinLoss(accountId)
         ]);
         
-        console.log('Player Data:', playerData); // Debug log
-        console.log('Win/Loss Data:', winLossData); // Debug log
+        console.log('Player Data:', playerData); 
+        console.log('Win/Loss Data:', winLossData); 
         
         setPlayer(playerData);
         setMatches(matchesData);
@@ -42,10 +42,9 @@ const PlayerProfile = () => {
     }
   }, [accountId]);
 
-  // Extract player information safely
   const getPlayerName = () => {
     if (!player) return 'Unknown Player';
-    // Check both direct properties and nested profile properties
+
     return player.name || player.personaname || player?.profile?.name || player?.profile?.personaname || 'Unknown Player';
   };
 
@@ -78,7 +77,6 @@ const PlayerProfile = () => {
   if (error) return <div className="error">{error}</div>;
   if (!player) return <div className="not-found">Player not found</div>;
 
-  // Calculate derived stats - use winLoss data directly
   const totalMatches = (winLoss?.win || 0) + (winLoss?.lose || 0);
   const winRate = totalMatches > 0 ? ((winLoss.win / totalMatches) * 100).toFixed(1) : 0;
   
@@ -106,7 +104,6 @@ const PlayerProfile = () => {
     <div className="player-profile">
       <Link to="/players" className="back-button">← Back to Players</Link>
       
-      {/* Player Header */}
       <div className="profile-header card">
         <div className="profile-avatar">
           <img 
@@ -157,7 +154,6 @@ const PlayerProfile = () => {
         </div>
       </div>
 
-      {/* Stats Overview */}
       <div className="stats-overview">
         <div className="stat-card">
           <div className="stat-icon">🏆</div>
@@ -191,7 +187,6 @@ const PlayerProfile = () => {
         </div>
       </div>
 
-      {/* Navigation Tabs */}
       <div className="profile-tabs">
         <button 
           className={`tab-button ${activeTab === 'overview' ? 'active' : ''}`}

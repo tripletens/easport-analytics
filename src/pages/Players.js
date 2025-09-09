@@ -13,7 +13,7 @@ const Players = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [filters, setFilters] = useState({
         team: '',
-        country: '', // Now stores full country name
+        country: '', 
         role: '',
         sortBy: 'name',
         sortOrder: 'asc'
@@ -47,7 +47,6 @@ const Players = () => {
     const filterAndSortPlayers = () => {
         let result = [...players];
 
-        // Apply search filter with null checks
         if (searchTerm) {
             const searchTermLower = searchTerm.toLowerCase();
             result = result.filter(player => {
@@ -56,7 +55,6 @@ const Players = () => {
             });
         }
 
-        // Apply team filter with null checks
         if (filters.team) {
             const teamFilterLower = filters.team.toLowerCase();
             result = result.filter(player => {
@@ -65,7 +63,6 @@ const Players = () => {
             });
         }
 
-        // Apply country filter with null checks
         if (filters.country) {
             const countryFilterLower = filters.country.toLowerCase();
             result = result.filter(player => {
@@ -75,7 +72,6 @@ const Players = () => {
             });
         }
 
-        // Apply role filter with null checks
         if (filters.role) {
             result = result.filter(player => {
                 const role = player?.fantasy_role?.toString() || '';
@@ -83,7 +79,6 @@ const Players = () => {
             });
         }
 
-        // Apply sorting with null checks
         result.sort((a, b) => {
             let aValue, bValue;
 
@@ -146,14 +141,12 @@ const Players = () => {
         }));
     };
 
-    // Get unique values for filters
     const uniqueTeams = [...new Set(
         players
             .map(p => p?.team_name)
             .filter(team => team && team.trim() !== '')
     )].sort();
 
-    // Get countries that actually exist in the player data
     const countriesInData = [...new Set(
         players
             .map(p => p?.country_code)
@@ -162,7 +155,6 @@ const Players = () => {
             .filter(name => name && name.trim() !== '')
     )].sort();
 
-    // Or use the full country options but ensure they're safe
     const countryOptions = getCountryOptions().filter(({ code, name }) =>
         name && name.trim() !== ''
     );
@@ -174,7 +166,6 @@ const Players = () => {
         { value: '4', label: 'Support (4)' }
     ];
 
-    // Pagination logic
     const indexOfLastPlayer = currentPage * playersPerPage;
     const indexOfFirstPlayer = indexOfLastPlayer - playersPerPage;
     const currentPlayers = filteredPlayers.slice(indexOfFirstPlayer, indexOfLastPlayer);
@@ -185,7 +176,6 @@ const Players = () => {
     if (loading) return <div className="loading">Loading players...</div>;
     if (error) return <div className="error">{error}</div>;
 
-    // If no players are loaded yet but loading is complete
     if (players.length === 0 && !loading) {
         return (
             <div className="players-page">
@@ -205,7 +195,6 @@ const Players = () => {
                     <p>Browse and discover Dota 2 professional players from around the world</p>
                 </div>
 
-                {/* Filters and Search */}
                 <div className="filters-section card">
                     <div className="filters-grid">
                         <div className="search-filter">
@@ -290,7 +279,6 @@ const Players = () => {
                     </div>
                 </div>
 
-                {/* Players Grid */}
                 <div className="players-grid">
                     {currentPlayers.length > 0 ? (
                         currentPlayers.map(player => {
@@ -302,7 +290,6 @@ const Players = () => {
                             const avatar = player?.avatarfull || '/images/person_icon.png';
                             const isPro = player?.is_locked || false;
 
-                            // con
                             return (
                                 <Link
                                     key={player.account_id}
@@ -373,7 +360,6 @@ const Players = () => {
                     )}
                 </div>
 
-                {/* Pagination */}
                 {totalPages > 1 && (
                     <div className="pagination">
                         <button
