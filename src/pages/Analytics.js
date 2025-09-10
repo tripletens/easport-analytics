@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { getProPlayers, getProMatches, getHeroStats } from '../services/opendota.api';
 import { getCountryName } from '../utils/countries';
-import { BarChart, LineChart, PieChart } from '../components/charts';
+import { BarChart, LineChart, PieChart, D3BaseChart } from '../components/charts';
 import './Analytics.css';
+
+import D3Chart from '../components/charts/';
+
 
 const Analytics = () => {
     const [players, setPlayers] = useState([]);
@@ -95,7 +98,7 @@ const Analytics = () => {
         return Object.entries(teamWinRates)
             .map(([team, stats]) => ({
                 label: team.length > 15 ? team.substring(0, 15) + '...' : team,
-                fullLabel: team, 
+                fullLabel: team,
                 value: ((stats.wins / (stats.wins + stats.losses)) * 100) || 0
             }))
             .sort((a, b) => b.value - a.value)
@@ -118,7 +121,7 @@ const Analytics = () => {
                 label: hero.localized_name ?
                     (hero.localized_name.length > 10 ? hero.localized_name.substring(0, 10) + '...' : hero.localized_name) :
                     `Hero ${hero.id}`,
-                fullLabel: hero.localized_name || `Hero ${hero.id}`, 
+                fullLabel: hero.localized_name || `Hero ${hero.id}`,
                 value: hero.pro_pick
             }))
             .sort((a, b) => b.value - a.value)
@@ -156,6 +159,8 @@ const Analytics = () => {
     const heroPickData = getHeroPickData();
     const regionData = getRegionData();
 
+    console.log({regionData});
+
     return (
         <div className="analytics-page">
             <div className="page-header">
@@ -190,7 +195,7 @@ const Analytics = () => {
                 <button className={`tab-button ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => setActiveTab('overview')}>
                     Overview
                 </button>
-                <button className={`tab-button ${activeTab === 'players' ? 'active' : ''}`} onClick={() => setActiveTab('players')}>
+                {/* <button className={`tab-button ${activeTab === 'players' ? 'active' : ''}`} onClick={() => setActiveTab('players')}>
                     Players
                 </button>
                 <button className={`tab-button ${activeTab === 'teams' ? 'active' : ''}`} onClick={() => setActiveTab('teams')}>
@@ -201,7 +206,7 @@ const Analytics = () => {
                 </button>
                 <button className={`tab-button ${activeTab === 'regions' ? 'active' : ''}`} onClick={() => setActiveTab('regions')}>
                     Regions
-                </button>
+                </button> */}
             </div>
 
             <div className="tab-content">
@@ -235,19 +240,20 @@ const Analytics = () => {
                             </div>
                         </div>
 
-                        <div className="charts-section">
-                            <div className="chart-card">
+                        {/* <div className="charts-section"> */}
+                            {/* <div className="chart-card">
                                 <h3>Top Teams by Win Rate</h3>
-                                {/* <BarChart
+                                <BarChart
                                     data={teamWinRateData}
                                     width={500}
                                     height={400}
                                     margin={{ top: 20, right: 30, bottom: 100, left: 40 }}
-                                /> */}
+                                />
 
-                                <BarChart
+                                <D3BaseChart
+                                    type="bar"
                                     data={teamWinRateData}
-                                    width={650}  
+                                    width={650}
                                     height={500}
                                     margin={getTeamChartMargins()}
                                     xAxisLabel="Teams"
@@ -255,9 +261,17 @@ const Analytics = () => {
                                     barColor="#4CAF50"
                                     hoverColor="#2E7D32"
                                 />
-                            </div>
 
-                            <div className="chart-card">
+                                <D3BaseChart
+                                    data={teamWinRateData}
+                                    width={650}
+                                    height={500}
+                                    renderChart={renderBarChart}
+                                    margin={{ top: 60, right: 30, bottom: 80, left: 60 }}
+                                />
+                            </div> */}
+
+                            {/* <div className="chart-card">
                                 <h3>Match Trends (Last 7 Days)</h3>
                                 <LineChart
                                     data={matchTrendData}
@@ -265,8 +279,8 @@ const Analytics = () => {
                                     height={300}
                                     margin={{ top: 20, right: 30, bottom: 40, left: 40 }}
                                 />
-                            </div>
-                        </div>
+                            </div> */}
+                        {/* </div> */}
 
                         <div className="charts-section">
                             <div className="chart-card">
