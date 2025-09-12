@@ -168,7 +168,7 @@ const Analytics = () => {
                 <p>Advanced D3.js visualizations for Dota 2 professional scene</p>
             </div>
 
-            <div className="filters-section card">
+            {/* <div className="filters-section card">
                 <div className="filters-row">
                     <div className="filter-group">
                         <label>Time Range</label>
@@ -189,7 +189,7 @@ const Analytics = () => {
                         </select>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
             <div className="analytics-tabs">
                 <button className={`tab-button ${activeTab === 'overview' ? 'active' : ''}`} onClick={() => setActiveTab('overview')}>

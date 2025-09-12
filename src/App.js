@@ -15,6 +15,7 @@ import Matches from './pages/Matches';
 import MatchProfile from './pages/MatchProfile';
 import Analytics from './pages/Analytics';
 import Favorites from './pages/Favorites';
+import Recommendations from './pages/Recommendations';
 
 function App() {
   return (
@@ -121,6 +122,17 @@ function App() {
                   </DashboardLayout>
                 </ProtectedRoute>
               }
+            />
+
+            <Route 
+              path="/recommendations" 
+              element={
+                <ProtectedRoute>
+                  <DashboardLayout>
+                    <Recommendations />
+                  </DashboardLayout>
+                </ProtectedRoute>
+              } 
             />
             
             <Route path="/" element={<Navigate to="/dashboard" replace />} />
