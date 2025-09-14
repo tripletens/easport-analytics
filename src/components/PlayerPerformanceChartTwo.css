@@ -1,0 +1,76 @@
+.player-performance-chart {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px 0;
+  position: relative;
+}
+
+.radar-area {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.radar-area:hover {
+  fill-opacity: 0.3 !important;
+  stroke-width: 3px !important;
+}
+
+.radar-point {
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.radar-point:hover {
+  r: 5 !important;
+}
+
+.line {
+  stroke: #e0e0e0;
+}
+
+.legend {
+  fill: #666;
+  font-weight: 500;
+}
+
+.level-label {
+  fill: #999;
+}
+
+/* Tooltip styles */
+.radar-tooltip {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border: 1px solid #333;
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.radar-tooltip strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.radar-tooltip div {
+  margin: 2px 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .player-performance-chart {
+    padding: 15px;
+    overflow-x: auto;
+  }
+  
+  .radar-tooltip {
+    font-size: 11px;
+    padding: 8px;
+    max-width: 200px;
+  }
+}

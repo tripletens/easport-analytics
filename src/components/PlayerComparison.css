@@ -1,0 +1,290 @@
+/* KDComparison.css */
+.kd-comparison {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin: 20px 0;
+}
+
+.comparison-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.comparison-header h2 {
+  color: #333;
+  margin-bottom: 8px;
+}
+
+.comparison-header p {
+  color: #666;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.sort-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-controls label {
+  font-weight: 600;
+  color: #333;
+}
+
+.sort-controls select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+}
+
+.selection-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.action-btn {
+  padding: 8px 16px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.action-btn:hover {
+  background: #e0e0e0;
+}
+
+.comparison-content {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.players-list {
+  flex: 1;
+  min-width: 300px;
+}
+
+.players-list h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.players-container {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+.player-item {
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border: 2px solid transparent;
+}
+
+.player-item.radiant {
+  background: rgba(76, 175, 80, 0.1);
+}
+
+.player-item.dire {
+  background: rgba(244, 67, 54, 0.1);
+}
+
+.player-item.selected {
+  border-color: #2196F3;
+  background: rgba(33, 150, 243, 0.1);
+}
+
+.player-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.player-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.player-name {
+  font-weight: 600;
+  color: #333;
+}
+
+.kda-ratio {
+  font-weight: bold;
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.9rem;
+}
+
+.kda-stats {
+  display: flex;
+  gap: 15px;
+}
+
+.stat {
+  text-align: center;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.8rem;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  display: block;
+  font-weight: 600;
+  color: #333;
+}
+
+.visualization {
+  flex: 2;
+  min-width: 300px;
+}
+
+.visualization h3 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.no-selection {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.bars-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.player-bars {
+  padding: 15px;
+  background: #f9f9f9;
+  border-radius: 8px;
+}
+
+.player-label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.player-color-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+.player-color-indicator[data-team="radiant"] {
+  background: #4CAF50;
+}
+
+.player-color-indicator[data-team="dire"] {
+  background: #F44336;
+}
+
+.kda-score {
+  margin-left: auto;
+  background: #333;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+}
+
+.stat-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.stat-bar {
+  display: flex;
+  align-items: center;
+}
+
+.bar-label {
+  width: 60px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.bar-container {
+  flex: 1;
+  height: 24px;
+  background: #eee;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 8px;
+  transition: width 0.5s ease;
+}
+
+.kills-bar {
+  background: #4CAF50;
+}
+
+.deaths-bar {
+  background: #F44336;
+}
+
+.assists-bar {
+  background: #2196F3;
+}
+
+.bar-value {
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .comparison-content {
+    flex-direction: column;
+  }
+  
+  .controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .kda-stats {
+    justify-content: space-around;
+  }
+}

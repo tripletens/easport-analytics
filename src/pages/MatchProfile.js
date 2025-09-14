@@ -4,6 +4,8 @@ import { getMatchDetails, getPlayerData } from '../services/opendota.api';
 import { getCountryName } from '../utils/countries';
 import './MatchProfile.css';
 import PlayerPerformanceChart from '../components/PlayerPerformanceChart';
+import PlayerPerformanceChartTwo from '../components/PlayerPerformanceChartTwo';
+import PlayerComparison from '../components/PlayerComparison';
 import * as d3 from 'd3';
 
 const MatchProfile = () => {
@@ -345,11 +347,23 @@ const MatchProfile = () => {
           <div className="analysis-tab">
             <h3>Match Analysis</h3>
 
-            {/* Add the Player Performance Chart here */}
             <div className="analysis-card">
-              <h4>Player Performance - KDA Comparison</h4>
+              <h4>Player Performance - KDA Comparison - Barchart </h4>
               <PlayerPerformanceChart players={match.players || []} />
             </div>
+
+            <div className="analysis-card">
+              <h4>Player Performance - KDA Comparison - RadarChart </h4>
+              <PlayerPerformanceChartTwo players={match.players || []} />
+            </div>
+
+
+            <div className="analysis-card">
+              <h4>Player Performance - KDA Comparison - RadarChart </h4>
+              <PlayerComparison players={match.players || []} />
+            </div>
+            
+
 
             <div className="analysis-content">
               <div className="analysis-card">
@@ -392,6 +406,7 @@ const MatchProfile = () => {
             </div>
           </div>
         )}
+
         {activeTab === 'players' && (
           <div className="players-tab">
             <h3>Player Statistics</h3>
