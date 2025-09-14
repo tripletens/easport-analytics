@@ -40,16 +40,16 @@ const Sidebar = () => {
       description: 'Advanced analytics'
     },
     {
-      path: '/recommendations',
-      label: 'Recommendations',
-      icon: '💡',
-      description: 'Strategic insights and advice'
-    },
-    {
       path: '/favorites',
       label: 'Favorites',
       icon: '⭐',
       description: 'Saved players & teams'
+    },
+    {
+      path: '/recommendations',
+      label: 'Recommendations',
+      icon: '💡',
+      description: 'Strategic insights and advice'
     }
   ];
 
